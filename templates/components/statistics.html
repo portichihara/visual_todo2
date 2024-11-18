@@ -1,0 +1,23 @@
+<div id="statistics-modal" class="modal">
+    <div class="modal-content">
+        <h2>タスク統計</h2>
+        <div class="statistics-grid">
+            <div class="stat-card">
+                <h3>進捗状況</h3>
+                <div class="progress-bar">
+                    <div id="progress-bar" class="progress"></div>
+                </div>
+                <p><span id="completed-count">0</span> / <span id="total-count">0</span></p>
+            </div>
+            <div class="stat-card">
+                <h3>優先度別</h3>
+                <ul class="priority-list">
+                    <li>高：<span id="high-priority">0</span></li>
+                    <li>中：<span id="medium-priority">0</span></li>
+                    <li>低：<span id="low-priority">0</span></li>
+                </ul>
+            </div>
+        </div>
+        <button onclick="closeStatisticsModal()">閉じる</button>
+    </div>
+</div>

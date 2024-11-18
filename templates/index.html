@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TODOリスト</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>TODOリスト</h1>
+        <nav>
+            <button onclick="showAddTodoForm()">新規タスク</button>
+            <button onclick="showStatistics()">統計</button>
+        </nav>
+    </header>
+
+    <div id="add-todo" class="modal">
+        <div class="modal-content">
+            <h2>新規タスク追加</h2>
+            <form id="todo-form">
+                <div class="form-group">
+                    <label>タイトル：</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label>説明：</label>
+                    <textarea id="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>優先度：</label>
+                    <select id="priority">
+                        <option value="3">高</option>
+                        <option value="2">中</option>
+                        <option value="1">低</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>締め切り：</label>
+                    <input type="datetime-local" id="due-date">
+                </div>
+                <div class="form-group">
+                    <label>タグ：</label>
+                    <input type="text" id="tags" placeholder="カンマ区切りでタグを入力">
+                    <div class="tag-suggestions"></div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">追加</button>
+                    <button type="button" onclick="closeModal()">キャンセル</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <div class="filters">
+            <input type="text" id="search" placeholder="検索...">
+            <select id="status-filter">
+                <option value="">全てのステータス</option>
+                <option value="未着手">未着手</option>
+                <option value="進行中">進行中</option>
+                <option value="完了">完了</option>
+            </select>
+            <select id="priority-filter">
+                <option value="">全ての優先度</option>
+                <option value="3">高</option>
+                <option value="2">中</option>
+                <option value="1">低</option>
+            </select>
+        </div>
+
+        <div class="todo-list-container">
+            <div class="status-columns">
+                <div class="status-column" data-status="未着手">
+                    <h2>未着手</h2>
+                    <div class="todo-items" id="todo-未着手"></div>
+                </div>
+                
+                <div class="status-column" data-status="進行中">
+                    <h2>進行中</h2>
+                    <div class="todo-items" id="todo-進行中"></div>
+                </div>
+                
+                <div class="status-column" data-status="完了">
+                    <h2>完了</h2>
+                    <div class="todo-items" id="todo-完了"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="statistics-modal" class="modal">
+        <div class="modal-content">
+            <h2>タスク統計</h2>
+            <div class="statistics-grid">
+                <div class="stat-card">
+                    <h3>進捗状況</h3>
+                    <div class="progress-bar">
+                        <div id="progress-bar" class="progress"></div>
+                    </div>
+                    <p><span id="completed-count">0</span> / <span id="total-count">0</span></p>
+                </div>
+                <div class="stat-card">
+                    <h3>優先度別</h3>
+                    <ul class="priority-list">
+                        <li>高：<span id="high-priority">0</span></li>
+                        <li>中：<span id="medium-priority">0</span></li>
+                        <li>低：<span id="low-priority">0</span></li>
+                    </ul>
+                </div>
+            </div>
+            <button onclick="closeStatisticsModal()">閉じる</button>
+        </div>
+    </div>
+
+    <script src="/static/js/websocket.js"></script>
+    <script src="/static/js/todo.js"></script>
+    <script src="/static/js/dragdrop.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<div class="modal-content">
+    <h2>新規タスク追加</h2>
+    <form id="todo-form">
+        <div class="form-group">
+            <label>タイトル：</label>
+            <input type="text" id="title" required>
+        </div>
+        <div class="form-group">
+            <label>説明：</label>
+            <textarea id="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label>優先度：</label>
+            <select id="priority">
+                <option value="3">高</option>
+                <option value="2">中</option>
+                <option value="1">低</option>
+            </select>
+        </div>
+        <div class="form-actions">
+            <button type="submit">追加</button>
+            <button type="button" onclick="closeModal()">キャンセル</button>
+        </div>
+    </form>
+</div>
