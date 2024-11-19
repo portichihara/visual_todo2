@@ -49,22 +49,33 @@ http://localhost:8080
 
 
 ## プロジェクト構造
-```
-.
+
+プロジェクトルート/
 ├── static/
 │   ├── css/
 │   │   └── style.css
-│   └── js/
-│       ├── todo.js        # メインのTODO管理機能
-│       ├── dragdrop.js    # ドラッグ＆ドロップ機能
-│       └── websocket.js   # WebSocket通信
+│   ├── js/
+│   │   ├── todo.js
+│   │   ├── dragdrop.js
+│   │   └── websocket.js
 ├── templates/
-│   ├── index.html         # メインページ
-│   └── components/        # 再利用可能なコンポーネント
+│   ├── index.html
+│   └── components/
 │       ├── todo-list.html
-│       └── statistics.html
-└── docker-compose.yml
-```
+│       ├── statistics.html
+│       └── todo-form.html
+├── handlers/
+│   ├── todo.go
+│   └── user.go
+├── models/
+│   ├── todo.go
+│   └── user.go
+├── main.go
+├── docker-compose.yml
+├── Dockerfile
+├── go.mod
+└── go.sum
+
 
 
 ## 技術スタック
